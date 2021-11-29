@@ -28,6 +28,7 @@ class Menu(models.Model):
     item_name = models.CharField(max_length=50)
     price = models.DecimalField(max_digits=10, decimal_places=2,
                                 verbose_name='Price in NPR', validators=[MinValueValidator(0.01)])
+    image = models.ImageField(upload_to='images/', default=None)
 
     class Meta:
         verbose_name = 'Food Item'
@@ -35,3 +36,10 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.item_name
+
+
+
+
+
+
+
