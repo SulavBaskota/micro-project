@@ -5,7 +5,7 @@ from django.core.validators import MinValueValidator
 
 
 class FoodCategory(models.Model):
-    category = models.CharField(max_length=30)
+    category = models.CharField(max_length=30, unique=True)
 
     class Meta:
         verbose_name = 'Food Category'
@@ -16,16 +16,15 @@ class FoodCategory(models.Model):
 
 
 class FoodItem(models.Model):
-    name = models.CharField(max_length=50)
-    category = models.ForeignKey(
-        'FoodCategory', on_delete=models.CASCADE, default=None, related_name='items')
+    name = models.CharField(max_length=50, unique=True)
+    category = models.ManyToManyField(FoodCategory, related_name='foodItems')
     price = models.DecimalField(max_digits=10, decimal_places=2,
                                 verbose_name='Price in NPR', validators=[MinValueValidator(0.01)])
     img = models.ImageField(upload_to='images', verbose_name='Image')
 
     class Meta:
         verbose_name = 'Food Item'
-        verbose_name_plural = 'Food Item'
+        verbose_name_plural = 'Food Items'
 
     def __str__(self):
         return self.name

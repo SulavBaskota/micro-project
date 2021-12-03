@@ -3,13 +3,10 @@ from .models import *
 # Register your models here.
 
 
-class FoodItemInline(admin.StackedInline):
+class FoodItemAdmin(admin.ModelAdmin):
     model = FoodItem
+    filter_horizontal = ('category',)
 
 
-class FoodCategoryAdmin(admin.ModelAdmin):
-    model = FoodCategory
-    inlines = [FoodItemInline]
-
-
-admin.site.register(FoodCategory, FoodCategoryAdmin)
+admin.site.register(FoodCategory)
+admin.site.register(FoodItem, FoodItemAdmin)

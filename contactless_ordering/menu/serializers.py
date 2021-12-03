@@ -9,8 +9,8 @@ class FoodItemSerializer(serializers.ModelSerializer):
 
 
 class FoodCategorySerializer(serializers.ModelSerializer):
-    items = FoodItemSerializer(many=True)
+    foodItems = FoodItemSerializer(many=True)
 
     class Meta:
         model = FoodCategory
-        fields = ('category', 'items')
+        fields = ('category', 'foodItems')
