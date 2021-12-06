@@ -15,10 +15,10 @@ class ShowMenu(APIView):
     def get(self, request):
         queryset = FoodCategory.objects.all()
         response = {
-            "MenuList": [
+            "menuList": [
 
             ]
         }
         for query_item in queryset:
-            response['MenuList'].append(self.serializer_class(query_item).data)
+            response['menuList'].append(self.serializer_class(query_item).data)
         return Response(response, status=status.HTTP_200_OK)
