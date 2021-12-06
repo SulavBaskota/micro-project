@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/LoginComponent";
-import Menu from "./pages/MenuComponent";
+import Menu from "./pages/menu/MenuComponent";
 
 export default function Body() {
     return (

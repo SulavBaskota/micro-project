@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
-export default function CheckoutButton({ items, total }) {
+export default function PlaceOrderButton({ items, total }) {
     return (
         <Fragment>
             <Box
@@ -18,12 +18,12 @@ export default function CheckoutButton({ items, total }) {
                 <Box
                     sx={{
                         boxShadow: 8,
-                        width: '95%',
+                        width: '100%',
                         height: 100,
-                        borderRadius: 1.5,
+                        // borderRadius: 1.5,
                         position: 'Fixed',
                         bottom: 0,
-                        m: 0.5,
+                        // m: 0.5,
                         backgroundColor: 'white',
                         display: 'flex',
                         justifyContent: 'center'
@@ -50,7 +50,7 @@ export default function CheckoutButton({ items, total }) {
                             </Grid>
                             <Grid item xs={6}>
                                 <Typography variant="body1" component="div">
-                                    CHECKOUT
+                                    Place Order
                                 </Typography>
                             </Grid>
                             <Grid item xs={3}>
