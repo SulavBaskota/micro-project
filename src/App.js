@@ -1,6 +1,6 @@
 import React from 'react';
-import Body from './BodyComponent';
-import Header from './HeaderComponent';
+import Body from './Body';
+import Header from './Header';
 import { Fragment } from 'react';
 
 function App() {

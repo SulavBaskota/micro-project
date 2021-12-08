@@ -26,7 +26,7 @@ const initialState = {
 const menuSlice = createSlice({
     name: 'menu',
     initialState,
-    reducer: {},
+    reducers: {},
     extraReducers(builder) {
         builder
             .addCase(fetchMenu.pending, (state, action) => {

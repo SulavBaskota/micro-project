@@ -3,8 +3,10 @@ import { Box, Button } from '@mui/material';
 import { Fragment } from 'react';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom';
 
-export default function PlaceOrderButton({ items, total }) {
+export default function OrderButton({ tableId, order, itemCount, total }) {
+    
     return (
         <Fragment>
             <Box
@@ -20,10 +22,8 @@ export default function PlaceOrderButton({ items, total }) {
                         boxShadow: 8,
                         width: '100%',
                         height: 100,
-                        // borderRadius: 1.5,
                         position: 'Fixed',
                         bottom: 0,
-                        // m: 0.5,
                         backgroundColor: 'white',
                         display: 'flex',
                         justifyContent: 'center'
@@ -33,6 +33,8 @@ export default function PlaceOrderButton({ items, total }) {
                         variant="contained"
                         size="large"
                         color="success"
+                        component={Link}
+                        to="/review"
                         sx={{
                             ml: 1,
                             mt: 1,
@@ -45,17 +47,17 @@ export default function PlaceOrderButton({ items, total }) {
                         <Grid container spacing={1}>
                             <Grid item xs={3}>
                                 <Typography variant="body1" component="div" align="left">
-                                    {items}{items === 1 ? ' Item' : ' Items'}
+                                    {itemCount}{itemCount === 1 ? ' Item' : ' Items'}
                                 </Typography>
                             </Grid>
                             <Grid item xs={6}>
-                                <Typography variant="body1" component="div">
+                                <Typography variant="body1" component="div" align="center">
                                     Place Order
                                 </Typography>
                             </Grid>
                             <Grid item xs={3}>
                                 <Typography variant="body1" component="div" align="right">
-                                    ${total}
+                                    Rs.{total}
                                 </Typography>
                             </Grid>
                         </Grid>
