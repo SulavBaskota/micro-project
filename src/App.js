@@ -1,7 +1,7 @@
-import React from 'react';
-import Body from './Body';
-import Header from './Header';
-import { Fragment } from 'react';
+import React from 'react'
+import Body from './Body'
+import Header from './Header'
+import { Fragment } from 'react'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Header />
       <Body />
     </Fragment>
-  );
+  )
 }
 
-export default App;
+export default App

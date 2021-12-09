@@ -1,12 +1,15 @@
-import * as React from 'react';
-import { Box, Button } from '@mui/material';
-import { Fragment } from 'react';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import { Link } from 'react-router-dom';
+import * as React from 'react'
+import { Box, Button } from '@mui/material'
+import { Fragment } from 'react'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { selectItemCount, selectTotal } from './orderSlice'
 
-export default function OrderButton({ tableId, order, itemCount, total }) {
-    
+export default function OrderButton() {
+    const total = useSelector(selectTotal)
+    const itemCount = useSelector(selectItemCount)
     return (
         <Fragment>
             <Box
@@ -32,7 +35,7 @@ export default function OrderButton({ tableId, order, itemCount, total }) {
                     <Button
                         variant="contained"
                         size="large"
-                        color="success"
+                        color="primary"
                         component={Link}
                         to="/review"
                         sx={{
@@ -65,5 +68,5 @@ export default function OrderButton({ tableId, order, itemCount, total }) {
                 </Box>
             </Box>
         </Fragment>
-    );
+    )
 }

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     tableId: '',
@@ -74,11 +74,11 @@ const orderSlice = createSlice({
     }
 })
 
-export const { setTableId, addOrder, removeOrder, increment, decrement } = orderSlice.actions;
+export const { setTableId, addOrder, removeOrder, increment, decrement } = orderSlice.actions
 
 export const selectTableId = state => state.order.tableId
 export const selectOrderList = state => state.order.orderList
 export const selectItemCount = state => state.order.itemCount
 export const selectTotal = state => state.order.total
 
-export default orderSlice.reducer;
+export default orderSlice.reducer

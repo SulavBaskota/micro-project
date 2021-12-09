@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 export const fetchMenu = createAsyncThunk(
     'menu/fetchMenu', async () => {
@@ -9,7 +9,7 @@ export const fetchMenu = createAsyncThunk(
                 'Access-Control-Allow-Origin': '*',
                 credentials: 'same-origin'
             },
-        };
+        }
         return await fetch('/menu/show-menu/', options)
             .then(res => res.json())
             .then(data => data.menuList)
@@ -30,17 +30,17 @@ const menuSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(fetchMenu.pending, (state, action) => {
-                state.status = 'loading';
+                state.status = 'loading'
             })
             .addCase(fetchMenu.fulfilled, (state, action) => {
-                state.status = 'succeeded';
-                state.menuList = action.payload;
+                state.status = 'succeeded'
+                state.menuList = action.payload
             })
     }
 })
 
 
 
-export const selectStatus = state => state.menu.status;
-export const selectMenuList = state => state.menu.menuList;
-export default menuSlice.reducer;
+export const selectStatus = state => state.menu.status
+export const selectMenuList = state => state.menu.menuList
+export default menuSlice.reducer

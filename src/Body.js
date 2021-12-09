@@ -1,7 +1,7 @@
-import { Routes, Route } from "react-router-dom";
-import Menu from "./pages/menu/Menu";
-import Review from "./pages/Review";
-import Home from "./pages/Home";;
+import { Routes, Route } from "react-router-dom"
+import Menu from "./pages/menu/Menu"
+import Review from "./pages/menu/Review"
+import Home from "./pages/Home"
 
 export default function Body() {
     return (
