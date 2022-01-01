@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     tableId: '',
@@ -6,6 +6,24 @@ const initialState = {
     total: 0,
     itemCount: 0
 }
+
+export const sendOrder = createAsyncThunk(
+    'order/sendOrder', async newOrder => {
+        const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                credentials: 'same-origin'
+            },
+            body: JSON.stringify(newOrder),
+        }
+        return await fetch('/orders/place-order/', options)
+            .then(res => res.json())
+            .then(data => data.message)
+            .catch((err) => console.log(err.message))
+    }
+)
 
 const orderSlice = createSlice({
     name: 'order',
@@ -70,7 +88,15 @@ const orderSlice = createSlice({
                 total: state.total - Number(action.payload.itemPrice)
             }
         }
-
+    },
+    extraReducers(builder) {
+        builder
+            .addCase(sendOrder.fulfilled, (state, action) => { 
+                // state.orderList = []
+                // state.total = 0
+                // state.itemCount = 0
+                // console.log(action.payload)
+            })
     }
 })
 

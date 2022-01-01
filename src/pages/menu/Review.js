@@ -5,14 +5,23 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import { Fragment } from 'react'
 import { Container, Button, Paper, Box } from '@mui/material'
-import { selectTotal, selectOrderList, selectTableId } from './order/orderSlice'
-import { useSelector } from 'react-redux'
+import { orderAdded, selectTotal, selectOrderList, selectTableId, sendOrder } from './order/orderSlice'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 export default function Review() {
     const tableId = useSelector(selectTableId)
     const orderList = useSelector(selectOrderList)
     const total = useSelector(selectTotal)
+    const dispatch = useDispatch()
+
+    const handleConfirm = async () => {
+        try {
+            await dispatch(sendOrder({ tableId, orderList })).unwrap()
+        } catch (err) {
+            console.log('Failed to send order: ', err)
+        }
+    }
 
     return (
         <Fragment>
@@ -52,6 +61,7 @@ export default function Review() {
                         <Button
                             variant="contained"
                             sx={{ mt: 3, ml: 1 }}
+                            onClick={() => handleConfirm()}
                         >
                             Confirm
                         </Button>
