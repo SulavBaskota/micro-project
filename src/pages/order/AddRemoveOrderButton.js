@@ -5,13 +5,13 @@ import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 import Paper from '@mui/material/Paper'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectOrderList } from "./order/orderSlice"
+import { selectOrderList } from "./orderSlice"
 import {
     isOrderInList,
     indexOf,
     handleRemoveItem,
     handleAddItem
-} from './order/orderHandler'
+} from './orderHandler'
 
 export default function AddRemoveOrderButton({ item }) {
 

@@ -4,7 +4,8 @@ const initialState = {
     tableId: '',
     orderList: [],
     total: 0,
-    itemCount: 0
+    itemCount: 0,
+    status: 'idel'
 }
 
 export const sendOrder = createAsyncThunk(
@@ -92,16 +93,18 @@ const orderSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(sendOrder.fulfilled, (state, action) => { 
-                // state.orderList = []
-                // state.total = 0
-                // state.itemCount = 0
-                // console.log(action.payload)
+                state.status = 'succeeded'
+                state.orderList = []
+                state.total = 0
+                state.itemCount = 0
+                console.log(action.payload)
             })
     }
 })
 
 export const { setTableId, addOrder, removeOrder, increment, decrement } = orderSlice.actions
 
+export const selectStatus = state => state.order.status
 export const selectTableId = state => state.order.tableId
 export const selectOrderList = state => state.order.orderList
 export const selectItemCount = state => state.order.itemCount

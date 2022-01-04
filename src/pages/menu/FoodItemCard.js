@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { Divider } from '@mui/material'
-import AddRemoveOrderButton from './AddRemoveOrderButton.js'
+import AddRemoveOrderButton from '../order/AddRemoveOrderButton.js'
 
 
 export default function FoodItemCard({ category }) {

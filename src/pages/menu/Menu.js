@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Fragment, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Box from '@mui/material/Box'
-import OrderButton from './order/OrderButton'
+import OrderButton from '../order/OrderButton'
 import { useSelector, useDispatch } from 'react-redux'
 import {
     selectMenuList,
@@ -13,9 +13,10 @@ import {
     setTableId,
     selectTableId,
     selectOrderList,
-} from './order/orderSlice'
+} from '../order/orderSlice'
 
 import FoodItemCard from './FoodItemCard'
+import { Typography } from '@mui/material'
 
 export default function Menu() {
     let { id } = useParams()
@@ -41,9 +42,15 @@ export default function Menu() {
             {status === 'succeeded' ? (
                 <Fragment>
                     <Box sx={{ pb: 15 }}>
-                        {menuList.map((category) => (
-                            <FoodItemCard category={category} />
-                        ))}
+                        {menuList.length !== 0 ? (
+                            menuList.map((category, idx) => (
+                                <FoodItemCard category={category} key={idx}/>
+                            ))
+                        ) : (
+                            <Typography align='center' variant='h4' component='h1'>
+                                No menu to display
+                            </Typography>
+                        )}
                     </Box>
                     {orderList.length !== 0 ? <OrderButton /> : null}
                 </Fragment>
