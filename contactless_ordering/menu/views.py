@@ -19,6 +19,7 @@ class ShowMenu(APIView):
 
             ]
         }
-        for query_item in queryset:
-            response['menuList'].append(self.serializer_class(query_item).data)
+        if queryset.exists():
+            for query_item in queryset:
+                response['menuList'].append(self.serializer_class(query_item).data)
         return Response(response, status=status.HTTP_200_OK)
