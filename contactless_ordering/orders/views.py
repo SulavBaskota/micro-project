@@ -57,7 +57,7 @@ class ShowUnpaidOrders(APIView):
 
     def get(self, request):
 
-        queryset = OrderFlags.objects.all().filter(paid=False)
+        queryset = OrderFlags.objects.all().filter(paid=False, pending=False)
         response = {
             "unpaidOrders": [
 
