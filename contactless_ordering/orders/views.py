@@ -2,9 +2,9 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from .models import OrderFlags, OrderDetails
+from .models import OrderFlag, OrderDetail
 from menu.models import FoodItem
-from .serializers import PendingOrderFlagsSerializer, UnpaidOrderFlagsSerializer
+from .serializers import PendingOrderFlagSerializer, UnpaidOrderFlagSerializer
 # Create your views here.
 
 
@@ -15,12 +15,12 @@ class PlaceOrder(APIView):
         tableId = request.data.get('tableId')
         orderList = request.data.get('orderList')
 
-        order = OrderFlags(tableId=tableId)
+        order = OrderFlag(tableId=tableId)
         order.save()
 
         for each in orderList:
             item = FoodItem.objects.get(pk=each.get('itemId'))
-            order_desc = OrderDetails(
+            order_desc = OrderDetail(
                 orderId=order, foodItemId=item, quantity=int(each.get('quantity')))
             order_desc.save()
 
@@ -32,11 +32,11 @@ class PlaceOrder(APIView):
 
 class ShowPendingOrders(APIView):
 
-    serializer_class = PendingOrderFlagsSerializer
+    serializer_class = PendingOrderFlagSerializer
 
     def get(self, request):
 
-        queryset = OrderFlags.objects.all().filter(pending=True)
+        queryset = OrderFlag.objects.all().filter(pending=True)
         response = {
             "pendingOrders": [
 
@@ -53,11 +53,11 @@ class ShowPendingOrders(APIView):
 
 class ShowUnpaidOrders(APIView):
 
-    serializer_class = UnpaidOrderFlagsSerializer
+    serializer_class = UnpaidOrderFlagSerializer
 
     def get(self, request):
 
-        queryset = OrderFlags.objects.all().filter(paid=False, pending=False)
+        queryset = OrderFlag.objects.all().filter(paid=False).order_by('tableId')
         response = {
             "unpaidOrders": [
 
@@ -78,7 +78,7 @@ class MarkCompleted(APIView):
 
         orderId = request.data.get('orderId')
 
-        order = OrderFlags.objects.get(pk=orderId)
+        order = OrderFlag.objects.get(pk=orderId)
         order.pending = False
         order.save()
 
@@ -97,7 +97,7 @@ class MarkPaid(APIView):
 
         orderId = request.data.get('orderId')
 
-        order = OrderFlags.objects.get(pk=orderId)
+        order = OrderFlag.objects.get(pk=orderId)
         order.paid = True
         order.save()
 

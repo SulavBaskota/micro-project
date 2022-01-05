@@ -4,25 +4,25 @@ from .models import *
 from menu.serializers import FoodItemSerializer
 
 
-class OrderDetailsSerializer(serializers.ModelSerializer):
+class OrderDetailSerializer(serializers.ModelSerializer):
     itemInfo = FoodItemSerializer(source='foodItemId')
 
     class Meta:
-        model = OrderDetails
+        model = OrderDetail
         fields = ('itemInfo', 'quantity')
 
 
-class PendingOrderFlagsSerializer(serializers.ModelSerializer):
-    items = OrderDetailsSerializer(many=True)
+class PendingOrderFlagSerializer(serializers.ModelSerializer):
+    items = OrderDetailSerializer(many=True)
 
     class Meta:
-        model = OrderFlags
+        model = OrderFlag
         fields = ('id', 'tableId', 'pending', 'items')
 
 
-class UnpaidOrderFlagsSerializer(serializers.ModelSerializer):
-    items = OrderDetailsSerializer(many=True)
+class UnpaidOrderFlagSerializer(serializers.ModelSerializer):
+    items = OrderDetailSerializer(many=True)
 
     class Meta:
-        model = OrderFlags
+        model = OrderFlag
         fields = ('id', 'tableId', 'paid', 'items')
