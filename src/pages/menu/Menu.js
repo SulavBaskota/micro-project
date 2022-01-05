@@ -31,11 +31,11 @@ export default function Menu() {
 
     useEffect(() => {
         if (status === 'idel') dispatch(fetchMenu())
-    }, [status])
+    }, [status, dispatch])
 
     useEffect(() => {
         if (id !== tableId) dispatch(setTableId(id))
-    })
+    }, [id, tableId, dispatch])
 
     return (
         <Fragment>
@@ -44,7 +44,7 @@ export default function Menu() {
                     <Box sx={{ pb: 15 }}>
                         {menuList.length !== 0 ? (
                             menuList.map((category, idx) => (
-                                <FoodItemCard category={category} key={idx}/>
+                                <FoodItemCard category={category} key={idx} />
                             ))
                         ) : (
                             <Typography align='center' variant='h4' component='h1'>

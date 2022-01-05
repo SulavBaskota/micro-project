@@ -18,11 +18,11 @@ export default function Counter() {
 
     useEffect(() => {
         if (unpaidOrdersStatus === 'idel') dispatch(fetchUnpaidOrders())
-    }, [unpaidOrdersStatus])
+    }, [unpaidOrdersStatus, dispatch])
 
     useInterval(() => {
         if (unpaidOrdersStatus === 'succeeded') dispatch(fetchUnpaidOrders())
-    }, 1000 * 10)
+    }, 1000 * 120)
 
     return (
         <Fragment>

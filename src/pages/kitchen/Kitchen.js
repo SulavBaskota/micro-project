@@ -18,11 +18,11 @@ export default function Kitchen() {
 
     useEffect(() => {
         if (pendingOrdersStatus === 'idel') dispatch(fetchPendingOrders())
-    }, [pendingOrdersStatus])
+    }, [pendingOrdersStatus, dispatch])
 
     useInterval(() => {
         if (pendingOrdersStatus === 'succeeded') dispatch(fetchPendingOrders())
-    }, 1000 * 10)
+    }, 1000 * 120)
 
     return (
         <Fragment>

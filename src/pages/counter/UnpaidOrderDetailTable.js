@@ -7,6 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import UnpaidOrderDetailTableRow from './UnpaidOrderDetailTableRow';
+import { Fragment } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function UnpaidOrderDetailTable({ orderList }) {
 
@@ -27,7 +29,9 @@ export default function UnpaidOrderDetailTable({ orderList }) {
         </TableHead>
         <TableBody>
           {orderList.map((order) => (
-            <UnpaidOrderDetailTableRow order={order} />
+            <Fragment key={uuidv4()}>
+              <UnpaidOrderDetailTableRow order={order} />
+            </Fragment>
           ))}
         </TableBody>
       </Table>

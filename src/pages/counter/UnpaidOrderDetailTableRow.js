@@ -6,16 +6,19 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useDispatch } from 'react-redux';
 import { markPaid } from './unpaidOrdersSlice';
+import {v4 as uuidv4} from 'uuid';
+import { Fragment } from 'react';
 
-
-const subItem = (val, idx) => (
-    <ListItem key={idx} sx={{ pr: 0 }}>
-        <ListItemText
-            primary={val}
-            align="right"
-            primaryTypographyProps={{ variant: 'subtitle2' }}
-        />
-    </ListItem>
+const subItem = (val) => (
+    <Fragment key={uuidv4()}>
+        <ListItem sx={{ pr: 0 }} >
+            <ListItemText
+                primary={val}
+                align="right"
+                primaryTypographyProps={{ variant: 'subtitle2' }}
+            />
+        </ListItem>
+    </Fragment>
 )
 
 export default function UnpaidOrderDetailTableRow({ order }) {
@@ -46,29 +49,29 @@ export default function UnpaidOrderDetailTableRow({ order }) {
             <TableCell align="right">{order.tableId}</TableCell>
             <TableCell align="right">
                 <List>
-                    {order.items.map((item, idx) => (
-                        subItem(item.itemInfo.name, idx)
+                    {order.items.map((item) => (
+                        subItem(item.itemInfo.name)
                     ))}
                 </List>
             </TableCell>
             <TableCell align="right">
                 <List>
-                    {order.items.map((item, idx) => (
-                        subItem(item.quantity, idx)
+                    {order.items.map((item) => (
+                        subItem(item.quantity)
                     ))}
                 </List>
             </TableCell>
             <TableCell align="right">
                 <List>
-                    {order.items.map((item, idx) => (
-                        subItem(item.itemInfo.price, idx)
+                    {order.items.map((item) => (
+                        subItem(item.itemInfo.price)
                     ))}
                 </List>
             </TableCell>
             <TableCell align="right">
                 <List>
-                    {order.items.map((item, idx) => (
-                        subItem(parseFloat(item.itemInfo.price) * parseInt(item.quantity), idx)
+                    {order.items.map((item) => (
+                        subItem(parseFloat(item.itemInfo.price) * parseInt(item.quantity))
                     ))}
                 </List>
             </TableCell>

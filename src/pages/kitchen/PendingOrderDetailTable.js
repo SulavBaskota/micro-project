@@ -7,6 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import PendingOrderDetailTableRow from './PendingOrderDetailTableRow';
+import { Fragment } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function PendingOrderDetailTable({ orderList }) {
 
@@ -24,7 +26,9 @@ export default function PendingOrderDetailTable({ orderList }) {
         </TableHead>
         <TableBody>
           {orderList.map((order) => (
-            <PendingOrderDetailTableRow order={order} />
+            <Fragment key={uuidv4()}>
+              <PendingOrderDetailTableRow order={order} />
+            </Fragment>
           ))}
         </TableBody>
       </Table>
