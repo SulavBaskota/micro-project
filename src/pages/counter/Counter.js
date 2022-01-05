@@ -6,7 +6,7 @@ import {
     fetchUnpaidOrders
 } from './unpaidOrdersSlice';
 import { useInterval } from "../../utils";
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import UnpaidOrderDetailTable from "./UnpaidOrderDetailTable";
 
 export default function Counter() {
@@ -31,9 +31,11 @@ export default function Counter() {
                     {unpaidOrdersList.length !== 0 ? (
                         <UnpaidOrderDetailTable orderList={unpaidOrdersList} />
                     ) : (
-                        <Typography align='center' variant='h4' component='h1'>
-                            No Unpaid Orders
-                        </Typography>
+                        <Box sx={{ pt: 10, justifyContent: 'center', display: 'flex' }}>
+                            <Typography align='center' variant='h4' component='h1'>
+                                No Unpaid Orders
+                            </Typography>
+                        </Box>
                     )}
                 </Fragment>
             ) : null}

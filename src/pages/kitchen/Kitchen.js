@@ -6,7 +6,7 @@ import {
     fetchPendingOrders
 } from './pendingOrdersSlice';
 import { useInterval } from "../../utils";
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import PendingOrderDetailTable from "./PendingOrderDetailTable";
 
 export default function Kitchen() {
@@ -31,9 +31,11 @@ export default function Kitchen() {
                     {pendingOrdersList.length !== 0 ? (
                         <PendingOrderDetailTable orderList={pendingOrdersList} />
                     ) : (
-                        <Typography align='center' variant='h4' component='h1'>
-                            No Pending Orders
-                        </Typography>
+                        <Box sx={{ pt: 10, justifyContent: 'center', display: 'flex' }}>
+                            <Typography align='center' variant='h4' component='h1'>
+                                No Pending Orders
+                            </Typography>
+                        </Box>
                     )}
                 </Fragment>
             ) : null}

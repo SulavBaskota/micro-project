@@ -14,12 +14,15 @@ export default function Header() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Just Eat Cafe
                     </Typography>
-                    <Stack spacing={2} direction="row">
-                        <Button variant="contained" component={Link} to="kitchen/" color="success">
+                    <Stack direction="row" spacing={1}>
+                        <Button variant="contained" component={Link} to="kitchen/" color="success" >
                             Kitchen
                         </Button>
                         <Button variant="contained" component={Link} to="counter/" color="success">
                             Counter
+                        </Button>
+                        <Button variant="contained" component={Link} to="generateQR/" color="success">
+                            Generate QR
                         </Button>
                     </Stack>
                 </Toolbar>
