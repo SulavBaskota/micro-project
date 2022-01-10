@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'menu.apps.MenuConfig',
     'orders.apps.OrdersConfig',
     'django_cleanup',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,9 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# To generate ER Diagram from models
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}

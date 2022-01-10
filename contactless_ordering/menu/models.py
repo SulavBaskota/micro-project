@@ -6,7 +6,8 @@ from django.core.validators import MinValueValidator
 
 class FoodCategory(models.Model):
     category = models.CharField(max_length=30, unique=True)
-
+    order = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    
     class Meta:
         verbose_name = 'Food Category'
         verbose_name_plural = 'Food Categories'

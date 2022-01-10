@@ -13,7 +13,7 @@ class ShowMenu(APIView):
     serializer_class = FoodCategorySerializer
 
     def get(self, request):
-        queryset = FoodCategory.objects.all()
+        queryset = FoodCategory.objects.all().order_by('order')
         response = {
             "menuList": [
 
