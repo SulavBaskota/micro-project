@@ -22,7 +22,7 @@ export default function Kitchen() {
 
   useInterval(() => {
     if (pendingOrdersStatus === "succeeded") dispatch(fetchPendingOrders());
-  }, 1000 * 10);
+  }, 1000 * 5);
 
   return (
     <Fragment>

@@ -45,9 +45,11 @@ export default function Menu() {
                 <FoodItemCard category={category} key={idx} />
               ))
             ) : (
-              <Typography align="center" variant="h4" component="h1">
-                No menu to display
-              </Typography>
+              <Box sx={{ pt: 10, justifyContent: "center", display: "flex" }}>
+                <Typography align="center" variant="h4" component="h1">
+                  No Menu To Display
+                </Typography>
+              </Box>
             )}
           </Box>
           {orderList.length !== 0 ? <OrderButton /> : null}

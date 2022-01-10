@@ -17,17 +17,17 @@ export default function FoodItemCard({ category }) {
         <Card sx={{ display: "flex", mb: 2 }} key={item.name}>
           <CardMedia
             component="img"
-            sx={{ width: 151 }}
+            sx={{ width: 170 }}
             image={item.img}
             alt={item.name}
           />
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <CardContent sx={{ flex: "1 0 auto" }}>
-              <Typography component="div" variant="h6">
+              <Typography component="div" variant="body1">
                 {item.name}
               </Typography>
               <Typography
-                variant="subtitle1"
+                variant="subtitle2"
                 color="text.secondary"
                 component="div"
               >

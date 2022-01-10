@@ -22,7 +22,7 @@ export default function Counter() {
 
   useInterval(() => {
     if (unpaidOrdersStatus === "succeeded") dispatch(fetchUnpaidOrders());
-  }, 1000 * 10);
+  }, 1000 * 5);
 
   return (
     <Fragment>
