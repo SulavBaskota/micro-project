@@ -19,7 +19,7 @@ export default function Header({ showButtons }) {
             style={{ textDecoration: "none" }}
             color="#ffffff"
           >
-            Just Eat Cafe
+            KFC
           </Typography>
 
           {showButtons ? (
