@@ -5,6 +5,8 @@ from rest_framework import status
 from .models import OrderFlag, OrderDetail
 from menu.models import FoodItem
 from .serializers import PendingOrderFlagSerializer, UnpaidOrderFlagSerializer
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 # Create your views here.
 
 
@@ -72,8 +74,8 @@ class ShowUnpaidOrders(APIView):
         return Response(response, status=status.HTTP_200_OK)
 
 
+@method_decorator(csrf_exempt, name='post')
 class MarkCompleted(APIView):
-
     def post(self, request, format=None):
 
         orderId = request.data.get('orderId')
@@ -91,8 +93,8 @@ class MarkCompleted(APIView):
         return Response(response, status=status.HTTP_200_OK)
 
 
+@method_decorator(csrf_exempt, name='post')
 class MarkPaid(APIView):
-
     def post(self, request, format=None):
 
         orderId = request.data.get('orderId')
