@@ -1,7 +1,17 @@
 import { Stack, Button, Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { resetStatus, selectStatus } from "./orderSlice";
+import { useEffect } from "react";
 
 export default function OrderSuccessful({ tableId }) {
+  const status = useSelector(selectStatus);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (status === "succeeded") dispatch(resetStatus());
+  }, [status, dispatch]);
+
   return (
     <Box
       sx={{

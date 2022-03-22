@@ -34,6 +34,9 @@ const orderSlice = createSlice({
     setTableId: (state, action) => {
       state.tableId = action.payload;
     },
+    resetStatus: (state) => {
+      state.status = "idel";
+    },
     addOrder: (state, action) => {
       return {
         ...state,
@@ -104,7 +107,7 @@ const orderSlice = createSlice({
   },
 });
 
-export const { setTableId, addOrder, removeOrder, increment, decrement } =
+export const { setTableId, resetStatus, addOrder, removeOrder, increment, decrement } =
   orderSlice.actions;
 
 export const selectStatus = (state) => state.order.status;

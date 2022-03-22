@@ -35,7 +35,7 @@ export default function Review() {
   return (
     <Fragment>
       <Header showButtons={false} />
-      {status === "succeeded" ? (
+      {status === "succeeded" || orderList.length === 0 ? (
         <OrderSuccessful tableId={tableId} />
       ) : (
         <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>

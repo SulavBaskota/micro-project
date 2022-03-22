@@ -14,7 +14,7 @@ export default function GenerateQR() {
   const [showAlert, setShowAlert] = useState(false);
   const [canDownload, setCanDownload] = useState(false);
 
-  const localIp = "http://172.20.10.6:3000";
+  const localIp = "http://192.168.1.64:3000";
 
   const generateQRCode = () => {
     if (tableNumber === "") {
