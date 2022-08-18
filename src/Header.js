@@ -12,39 +12,39 @@ export default function Header({ showButtons }) {
       <AppBar position="static">
         <Toolbar>
           <Typography
-            variant="h6"
+            variant="h4"
             sx={{ flexGrow: 1 }}
             component={Link}
             to="/"
-            style={{ textDecoration: "none" }}
-            color="#ffffff"
+            style={{ textDecoration: "none" , fontWeight: "bold"}}
+            color="inherit"
           >
-            KFC
+            SULAV
           </Typography>
 
           {showButtons ? (
             <Stack direction="row" spacing={1}>
               <Button
-                variant="contained"
+                variant="outlined"
                 component={Link}
-                to="/kitchen/"
-                color="success"
+                to="/kitchen"
+                color="inherit"
               >
                 Kitchen
               </Button>
               <Button
-                variant="contained"
+                variant="outlined"
                 component={Link}
-                to="/counter/"
-                color="success"
+                to="/counter"
+                color="inherit"
               >
                 Counter
               </Button>
               <Button
-                variant="contained"
+                variant="outlined"
                 component={Link}
-                to="/generateQR/"
-                color="success"
+                to="/generateQR"
+                color="inherit"
               >
                 Generate QR
               </Button>

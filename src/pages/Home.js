@@ -1,7 +1,37 @@
 import { Link } from "react-router-dom";
-import { Stack, Button, Box } from "@mui/material";
+import {
+  Stack,
+  Box,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import { Fragment } from "react";
 import Header from "../Header";
+
+const CardButton = ({ link, image, text }) => (
+  <Card raised>
+    <CardActionArea component={Link} to={link}>
+      <CardMedia
+        component="img"
+        alt={text}
+        image={image}
+        sx={{ width: { xs: 400, sm: 500 }, height: 300 }}
+      />
+      <CardContent>
+        <Typography
+          variant="h5"
+          align="center"
+          sx={{ textTransform: "uppercase" }}
+        >
+          {text}
+        </Typography>
+      </CardContent>
+    </CardActionArea>
+  </Card>
+);
 
 export default function Home() {
   return (
@@ -11,34 +41,25 @@ export default function Home() {
         sx={{
           display: "flex",
           justifyContent: "center",
-          mt: 10,
+          my: 10,
         }}
       >
-        <Stack spacing={2} direction="row">
-          <Button
-            variant="contained"
-            component={Link}
-            to="/kitchen/"
-            color="success"
-          >
-            Kitchen
-          </Button>
-          <Button
-            variant="contained"
-            component={Link}
-            to="/counter/"
-            color="success"
-          >
-            Counter
-          </Button>
-          <Button
-            variant="contained"
-            component={Link}
-            to="/generateQR/"
-            color="success"
-          >
-            Generate QR
-          </Button>
+        <Stack spacing={2} direction={{ xs: "column", md: "row" }}>
+          <CardButton
+            link="/kitchen"
+            image="/assests/kitchen.jpg"
+            text="Kitchen"
+          />
+          <CardButton
+            link="/counter"
+            image="/assests/counter.webp"
+            text="Counter"
+          />
+          <CardButton
+            link="/generateQR"
+            image="/assests/generateQR.png"
+            text="Generate QR"
+          />
         </Stack>
       </Box>
     </Fragment>

@@ -85,7 +85,7 @@ export default function GenerateQR() {
             <Button
               variant="contained"
               onClick={downloadQRCode}
-              color="success"
+              color="primary"
             >
               Download
             </Button>
