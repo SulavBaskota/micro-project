@@ -14,8 +14,9 @@ class PlaceOrder(APIView):
 
         tableId = request.data.get('tableId')
         orderList = request.data.get('orderList')
+        paid = request.data.get('paid')
 
-        order = OrderFlag(tableId=tableId)
+        order = OrderFlag(tableId=tableId, paid=paid)
         order.save()
 
         for each in orderList:

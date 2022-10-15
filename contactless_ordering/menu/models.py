@@ -20,7 +20,7 @@ class FoodItem(models.Model):
     name = models.CharField(max_length=50, unique=True)
     category = models.ManyToManyField(FoodCategory, related_name='foodItems')
     price = models.DecimalField(max_digits=10, decimal_places=2,
-                                verbose_name='Price in NPR', validators=[MinValueValidator(0.01)])
+                                verbose_name='Price in USD', validators=[MinValueValidator(0.01)])
     img = models.ImageField(upload_to='images', verbose_name='Image')
 
     class Meta:
