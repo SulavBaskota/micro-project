@@ -19,7 +19,7 @@ export default function Header({ showButtons }) {
             style={{ textDecoration: "none" , fontWeight: "bold"}}
             color="inherit"
           >
-            SULAV
+            KFC
           </Typography>
 
           {showButtons ? (

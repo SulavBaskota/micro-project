@@ -31,7 +31,7 @@ export default function FoodItemCard({ category }) {
                 color="text.secondary"
                 component="div"
               >
-                Rs.{item.price}
+                $ {item.price}
               </Typography>
             </CardContent>
             <Box

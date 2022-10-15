@@ -8,6 +8,7 @@ import Kitchen from "./pages/kitchen/Kitchen";
 import Counter from "./pages/counter/Counter";
 import GenerateQR from "./pages/generateQR/GenerateQR";
 import PaymentOptions from "./pages/order/PaymentOptions";
+import Paypal from "./pages/order/Paypal";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/counter" element={<Counter />} />
         <Route path="/generateQR" element={<GenerateQR />} />
         <Route path="/payment-options" element={<PaymentOptions />} />
+        <Route path="/paypal" element={<Paypal />} />
       </Routes>
     </Fragment>
   );

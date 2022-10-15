@@ -61,7 +61,7 @@ export default function OrderButton() {
               </Grid>
               <Grid item xs={3}>
                 <Typography variant="body1" component="div" align="right">
-                  Rs.{total}
+                  $ {total}
                 </Typography>
               </Grid>
             </Grid>

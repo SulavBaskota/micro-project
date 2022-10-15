@@ -34,10 +34,10 @@ export default function Review() {
               <ListItem key={order.name} sx={{ py: 1, px: 0 }}>
                 <ListItemText
                   primary={order.quantity + " X " + order.name}
-                  secondary={"Rs." + order.price + " each"}
+                  secondary={"$ " + order.price + " each"}
                 />
                 <Typography variant="body2">
-                  Rs.{order.price * order.quantity}
+                  $ {order.price * order.quantity}
                 </Typography>
               </ListItem>
             ))}
@@ -45,7 +45,7 @@ export default function Review() {
             <ListItem sx={{ py: 1, px: 0 }}>
               <ListItemText primary="Total" />
               <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                Rs.{total}
+                $ {total}
               </Typography>
             </ListItem>
           </List>
