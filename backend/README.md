@@ -1,1 +1,1 @@
-#mp_backend
+# Backend for the application using Django
